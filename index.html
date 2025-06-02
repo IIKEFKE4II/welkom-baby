@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>welkom-baby</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Welkom-baby</h1>
+    <audio id="player" src="muziek.mp3" autoplay></audio>
+  </div>
+
+  <script>
+    // Probeer automatisch af te spelen
+    const player = document.getElementById('player');
+    player.play().catch(() => {
+      // Als autoplay wordt geblokkeerd, speel af bij eerste aanraking
+      const startPlayback = () => {
+        player.play();
+        document.removeEventListener('click', startPlayback);
+        document.removeEventListener('touchstart', startPlayback);
+      };
+      document.addEventListener('click', startPlayback);
+      document.addEventListener('touchstart', startPlayback);
+    });
+  </script>
+</body>
+</html>
