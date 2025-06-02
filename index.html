@@ -2,40 +2,71 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>welkom-baby</title>
+  <title>Welkom Baby</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #000;
-      color: #fff;
-      font-family: sans-serif;
+      background: linear-gradient(to bottom right, #dbeeff, #a6d8ff);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       text-align: center;
+      padding: 50px 20px;
+      color: #003366;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+
+    .play-button {
+      background-color: #66ccff;
+      border: none;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      font-size: 2.5em;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .play-button:hover {
+      background-color: #33bbff;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>Welkom-baby</h1>
-    <audio id="player" src="muziek.mp3" autoplay></audio>
+
+  <h1>Welkom lieve jongen!</h1>
+  <p>We vieren jouw komst met een speciaal melodietje.</p>
+
+  <button class="play-button" onclick="playMusic()">▶️</button>
+
+  <audio id="muziek" src="muziek.mp3"></audio>
+
+  <div class="footer">
+    Tik op de knop om de muziek te starten
   </div>
 
   <script>
-    // Probeer automatisch af te spelen
-    const player = document.getElementById('player');
-    player.play().catch(() => {
-      // Als autoplay wordt geblokkeerd, speel af bij eerste aanraking
-      const startPlayback = () => {
-        player.play();
-        document.removeEventListener('click', startPlayback);
-        document.removeEventListener('touchstart', startPlayback);
-      };
-      document.addEventListener('click', startPlayback);
-      document.addEventListener('touchstart', startPlayback);
-    });
+    function playMusic() {
+      const audio = document.getElementById('muziek');
+      audio.play();
+    }
   </script>
+
 </body>
 </html>
