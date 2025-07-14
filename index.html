@@ -2,69 +2,53 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Welkom Baby</title>
+  <title>Welkom Colin!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #f6f4f2; /* zachte beige achtergrond */
+    }
+
     body {
-      background: linear-gradient(to bottom right, #dbeeff, #a6d8ff);
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      text-align: center;
-      padding: 50px 20px;
-      color: #003366;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.3em;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 2em;
+      background-image: url('colin_ellis_webachtergrond.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
     }
 
     .play-button {
-      background-color: #66ccff;
       border: none;
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      font-size: 2.5em;
-      color: white;
+      font-size: 18px;
+      color: #f6f4f2;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 12px 24px;
+      border-radius: 25px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: background-color 0.3s, transform 0.2s;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
     }
 
     .play-button:hover {
-      background-color: #33bbff;
       transform: scale(1.05);
-    }
-
-    .footer {
-      margin-top: 3em;
-      font-size: 0.9em;
-      color: #555;
     }
   </style>
 </head>
 <body>
 
-  <h1>Welkom lieve jongen!</h1>
-  <p>We vieren jouw komst met een speciaal melodietje.</p>
-
-  <button class="play-button" onclick="playMusic()">▶️</button>
-
-  <audio id="muziek" src="muziek.mp3"></audio>
-
-  <div class="footer">
-    Tik op de knop om de muziek te starten
-  </div>
+  <button class="play-button" onclick="playMusic()">All I want for you my son, is to be satisfied... ▶</button>
+  <audio id="muziek" src="mp3/muziek.mp3"></audio>
 
   <script>
     function playMusic() {
-      const audio = document.getElementById('muziek');
-      audio.play();
+      document.getElementById('muziek').play();
     }
   </script>
 
